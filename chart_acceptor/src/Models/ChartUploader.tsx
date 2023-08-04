@@ -8,12 +8,20 @@ function FileUpload() {
     function handleFile(event: any) {
         setFile(event.target.files[0])
         //console.log(file)
+        console.log('aaaaaaaaaaaaaaaaaaaaaa')
         console.log(typeof (file))
     }
 
-    function handleUpload() {
+    function handleUpload(event: any) {
+        event.preventDefault()
+        if (!file) {
+            console.log("file undefined")
+            return
+        }
+
         const formData = new FormData()
         formData.append('file', file)
+        console.log('aaaaaaaaaaaaaaaa')
         fetch(
             'url',
             {
